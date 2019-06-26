@@ -26,6 +26,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// fetch('/api/trips')
+//   .then(data => data.json())
+//   .then(console.log);
+
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
