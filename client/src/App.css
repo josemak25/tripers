@@ -2,4 +2,14 @@ html,
 body {
   margin: 0;
   padding: 0;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  font-family: Fira Code, Helvetica, sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
 }

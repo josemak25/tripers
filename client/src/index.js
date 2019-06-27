@@ -7,7 +7,7 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import App from './App';
+import Navigator from './components/Router';
 import * as serviceWorker from './serviceWorker';
 
 if (process.env.NODE_ENV === 'production') {
@@ -26,13 +26,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// fetch('/api/trips')
-//   .then(data => data.json())
-//   .then(console.log);
-
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <Navigator />
   </ApolloProvider>,
   document.getElementById('root'),
 );
