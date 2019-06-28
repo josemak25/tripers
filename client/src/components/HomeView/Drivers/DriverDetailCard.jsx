@@ -1,8 +1,8 @@
 import React from 'react';
-import driveOnGlass from '../../../images/man-on-glass.jpg';
 import driveOnTie from '../../../images/man-on-tie.jpg';
 
-const DriverDetailCard = () => {
+const DriverDetailCard = ({ driver }) => {
+  const { name, gender, agent, email, phone, DOB, address } = driver;
   return (
     <div style={styles}>
       <div
@@ -24,17 +24,14 @@ const DriverDetailCard = () => {
       >
         <div style={{ background: '#24292f', height: '30%' }} />
         <div>
-          <h1 style={texts}>John Doe</h1>
-          <h5 style={h5}>Johngrey@gmail.com</h5>
+          <h1 style={texts}>{name}</h1>
+          <h5 style={h5}>{email}</h5>
           <div>
-            <h2 style={letter}>Gender: male</h2>
-            <h4 style={letter}>Agent: TECHMANIA</h4>
-            <h4 style={letter}>Phone: +234 808-364-2821</h4>
-            <h4 style={letter}>DOB: 1973-04-27T11:49:50+01:00</h4>
-            <h4 style={letter}>
-              Address: 510 Atkins Avenue, Escondida, Federated States Of
-              Micronesia, 5412
-            </h4>
+            <h2 style={letter}>Gender: {gender}</h2>
+            <h4 style={letter}>Agent: {agent}</h4>
+            <h4 style={letter}>Phone: {phone}</h4>
+            <h4 style={letter}>DOB: {DOB}</h4>
+            <h4 style={letter}>Address: {address}</h4>
           </div>
         </div>
       </div>

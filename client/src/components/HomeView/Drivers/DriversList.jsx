@@ -2,14 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import DriverCard from './DriverListCard';
 
-const DriversList = () => {
-  const drivers = Array(20).fill(20);
-
+const DriversList = ({ drivers, handleChange }) => {
   return (
     <DrivesDiv>
       <CardHead>DRIVERS</CardHead>
-      {drivers.map((driver, i) => (
-        <DriverCard key={i} />
+      {drivers.map(driver => (
+        <DriverCard
+          key={driver.driverID}
+          driver={driver}
+          handleChange={() => handleChange(driver)}
+        />
       ))}
     </DrivesDiv>
   );

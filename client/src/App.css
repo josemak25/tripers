@@ -13,3 +13,8 @@ body {
   justify-content: space-between;
   height: 100vh;
 }
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}

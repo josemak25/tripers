@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import DriverListCard from './DriverListCard';
 import DriverDetailCard from './DriverDetailCard';
 
-const DriverDetails = () => {
+const DriverDetails = ({ driver }) => {
   return (
     <DrivesDiv>
-      <DriverListCard />
+      <DriverListCard driver={driver} />
       <div style={{ height: '20%', background: '#c6c6c6' }}>DRIVER NAME</div>
       <div
         style={{
@@ -41,13 +41,14 @@ const DriverDetails = () => {
           <i className="fab fa-linkedin" />
         </span>
       </div>
-      <DriverDetailCard />
+      <DriverDetailCard driver={driver} />
     </DrivesDiv>
   );
 };
 
 const DrivesDiv = styled.section`
-  border-left: 1px #c6c6c6 solid
+  // border-left: 1.5px #66717a solid;
+  box-shadow: -2px 0px 0px 0px rgba(209, 207, 209, 1);
   width: 70%;
   margin-right: 2rem;
 `;

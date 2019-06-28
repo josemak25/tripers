@@ -39,12 +39,13 @@ const SideBar = () => {
 };
 
 const SideBarSection = styled.section`
-  // border: 2px solid;
+  box-shadow: 2px 1px 0px 0px rgba(209, 207, 209, 1);
   width: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  // border: 1px red solid
 `;
 
 export default SideBar;

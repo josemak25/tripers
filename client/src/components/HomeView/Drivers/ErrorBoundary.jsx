@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const DriverCard = () => {
-  return (
-    <Card>
-      <div style={letter}>A</div>
-      <span>
-        <h1 style={texts}>driver name</h1>
-        <h5 style={h5}>driver email</h5>
-      </span>
-    </Card>
-  );
-};
+export default class ErrorBoundary extends Component {
+  state = {
+    isError: false,
+  };
+
+  componentDidCatch() {
+    this.setState({ isError: true });
+  }
+
+  render() {
+    if (this.state.isError) {
+      return (
+        <Card>
+          <div style={letter}>U</div>
+          <span>
+            <h1 style={texts}>Not Available</h1>
+            <h5 style={h5}>Not Available</h5>
+          </span>
+        </Card>
+      );
+    } else {
+      return this.props.children;
+    }
+  }
+}
 
 const Card = styled.div`
     border-bottom: 1px rgb(228, 228, 228) solid;
@@ -51,5 +65,3 @@ const letter = {
   color: '#fff',
   boxShadow: '0px 2px 19px -6px rgba(0,0,0,0.67)',
 };
-
-export default DriverCard;
