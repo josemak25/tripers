@@ -53,10 +53,11 @@ const destinationLog = {
     alignItems: 'center',
     padding: '0 0.5rem',
     marginLeft: '0.5rem',
-    marginTop: '0.5rem',
+    marginTop: '10rem',
     borderBottomLeftRadius: '5px',
     borderTopLeftRadius: '5px',
     backgroundColor: '#fff',
+    boxShadow: '-2px 1px 10px -3px rgba(0,0,0,0.75)',
   },
 
   requests: {
@@ -67,11 +68,11 @@ const destinationLog = {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    boxShadow: '-1px 0px 0px 0px rgba(189,189,189,1)',
     marginRight: '0.5rem',
-    marginTop: '0.5rem',
+    marginTop: '10rem',
     borderBottomRightRadius: '5px',
     borderTopRightRadius: '5px',
+    boxShadow: '1px 1px 10px -3px rgba(0,0,0,0.75)',
   },
 
   amountMoney: {
@@ -124,10 +125,10 @@ const destinationLog = {
   destinationIcon: {
     color: '#66717a',
     height: 'auto',
+    marginTop: '1rem',
   },
 
   arrival: {
-    // border: '1px pink solid',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',

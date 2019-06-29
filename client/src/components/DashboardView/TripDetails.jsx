@@ -17,6 +17,7 @@ export default function Trips() {
       </TripSection>
       <RecentSection>
         <RecentTrips />
+        <RecentTrips />
       </RecentSection>
     </>
   );
@@ -30,7 +31,8 @@ const TripSection = styled.section`
 const RecentSection = styled.section`
   border: 2px yellow solid;
   height: 25%;
-  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 const receipt = {
@@ -38,7 +40,7 @@ const receipt = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '#f4f6fa',
+  // backgroundColor: '#f4f6fa',
 };
 
 const destinationLog = {

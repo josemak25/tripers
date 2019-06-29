@@ -31,6 +31,7 @@ const Details = styled.div`
   box-shadow: 0px 0px 3px 1px rgba(153, 150, 153, 1);
   margin-top: 1rem;
   height: 81%;
+  //   border: 2px red solid
 `;
 
 const receiptIcon = {
@@ -55,7 +56,6 @@ const receiptDetails = {
     justifyContent: 'space-between',
     height: '5rem',
     paddingLeft: '0.5rem',
-    //     boxShadow: '0px 0px 3px -1px rgba(189,189,189,1)',
     margin: 0,
     position: 'absolute',
     top: '1px',
