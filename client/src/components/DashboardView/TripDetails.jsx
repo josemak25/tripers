@@ -49,8 +49,46 @@ export default function Trips() {
             </section>
           </Details>
         </div>
-        <div style={{ border: '2px purple solid', width: '40%' }}>
-          Destination
+        <div style={destinationLog}>
+          <section style={destinationLog.amount}>
+            <div style={destinationLog.amountMoney}>$276</div>
+            <div style={destinationLog.amountDate}>
+              <h4
+                style={{
+                  margin: '0',
+                  fontWeight: 400,
+                  textAlign: 'center',
+                }}
+              >
+                TODAY
+              </h4>
+              <h5
+                style={{
+                  margin: '0',
+                  fontWeight: 500,
+                }}
+              >
+                06:30 PM
+              </h5>
+            </div>
+          </section>
+          <section style={destinationLog.requests}>
+            <div style={destinationLog.trip}>
+              <i
+                className="fas fa-arrows-alt-v"
+                style={destinationLog.destinationIcon}
+              />
+              <span style={destinationLog.arrival}>
+                <div style={destinationLog.pickUp}>
+                  311 Woodbine Street, Catharine, Kentucky, 8240
+                </div>
+                <div style={destinationLog.dropOff}>
+                  311 Woodbine Street, Catharine, Kentucky, 8240
+                </div>
+              </span>
+            </div>
+            <div style={destinationLog.destinationRequest}>Request</div>
+          </section>
         </div>
       </TripSection>
       <RecentSection>
@@ -151,7 +189,7 @@ const receiptDetails = {
   },
 
   dashedPrice: {
-    border: '2.5px #ececec dashed',
+    border: '2px #ececec dashed',
     display: 'flex',
     alignItems: 'center',
     height: '2rem',
@@ -188,5 +226,78 @@ const receiptDetails = {
     alignItems: 'center',
     justifyContent: 'space-between',
     fontSize: '0.7rem',
+  },
+};
+
+const destinationLog = {
+  width: '40%',
+  display: 'flex',
+  amount: {
+    borderLeft: '0.3rem #ff6384 solid',
+    width: '25%',
+    height: '40%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    padding: '0 0.5rem',
+  },
+  requests: {
+    border: '2px yellow solid',
+    width: '75%',
+    height: '40%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    boxShadow: '-1px 0px 0px 0px rgba(189,189,189,1)',
+  },
+
+  amountMoney: {
+    fontSize: '1rem',
+    fontWeight: 500,
+    color: '#ff6384',
+  },
+
+  amountDate: {
+    width: '120%',
+  },
+
+  pickUp: {
+    fontSize: '0.6rem',
+    margin: '0.3rem 0',
+    textAlign: 'center',
+    paddingBottom: '0.6rem',
+    boxShadow: '0px 1px 0px 0px rgba(189,189,189,1)',
+  },
+
+  dropOff: {
+    fontSize: '0.6rem',
+    marginBottom: '0.5rem',
+    textAlign: 'center',
+  },
+
+  trip: {
+    width: '90%',
+    height: '50%',
+    marginBottom: '1.5rem',
+    display: 'flex',
+  },
+
+  destinationRequest: {
+    width: '90%',
+    height: '40%',
+  },
+
+  destinationIcon: {
+    color: '#66717a',
+    height: 'auto',
+  },
+
+  arrival: {
+    // border: '1px pink solid',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 };
