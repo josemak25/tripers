@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import DashBordTable from './DashBordTable';
+import TripDetails from './TripDetails';
 import ChartCard from './ChartCard';
 import { TripsContext, DriversContext } from './Context';
 
@@ -60,7 +61,7 @@ const MainSection = () => {
               <DashBordTable />
             </section>
             <section style={tripDetail}>
-              <div>TRIP</div>
+              <TripDetails />
             </section>
           </section>
         </DriversContext.Provider>
