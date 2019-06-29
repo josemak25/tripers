@@ -2,23 +2,33 @@ import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import DashBordTable from './DashBordTable';
 import ChartCard from './ChartCard';
+import { TripsContext, DriversContext } from './Context';
 
 const path = '';
-const tripsContext = React.createContext();
 
 const MainSection = () => {
   const [trips, setTrips] = useState([]);
+  const [drivers, setDrivers] = useState([]);
 
   useEffect(() => {
     fetch('api/trips')
       .then(res => res.json())
       .then(data => {
         setTrips(data.data);
-        console.log(data.data);
+      });
+
+    fetch('/api/drivers')
+      .then(res => res.json())
+      .then(data => {
+        const response = data.data.reduce((result, driver) => {
+          if (!result[driver.driverID]) {
+            result[driver.driverID] = driver;
+          }
+          return result;
+        }, {});
+        setDrivers(response);
       });
   }, []);
-
-  const AllTrips = useContext(tripsContext);
 
   return (
     <Main>
@@ -42,15 +52,19 @@ const MainSection = () => {
           new Message
         </a>
       </section>
-      <section style={infoHolder}>
-        <section style={graphHolder}>
-          <ChartCard />
-          <DashBordTable />
-        </section>
-        <section style={tripDetail}>
-          <div>TRIP</div>
-        </section>
-      </section>
+      <TripsContext.Provider value={trips}>
+        <DriversContext.Provider value={drivers}>
+          <section style={infoHolder}>
+            <section style={graphHolder}>
+              <ChartCard />
+              <DashBordTable />
+            </section>
+            <section style={tripDetail}>
+              <div>TRIP</div>
+            </section>
+          </section>
+        </DriversContext.Provider>
+      </TripsContext.Provider>
     </Main>
   );
 };
@@ -95,7 +109,7 @@ const header = {
 };
 
 const graphHolder = {
-  border: '2px blue solid',
+  // border: '2px blue solid',
   width: '50%',
 };
 

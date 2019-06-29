@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DriversContext } from './Context';
 
-const TableData = () => {
+const TableData = ({ trip }) => {
+  const drivers = useContext(DriversContext);
+
+  const fetchDriver = driverID => {
+    const driver = drivers[driverID];
+    if (!driver) return 'Not Available';
+    return driver.name;
+  };
+
   return (
     <tr style={tableRow}>
       <td style={tableData}>
@@ -8,11 +17,11 @@ const TableData = () => {
           <i className="fas fa-ellipsis-v" style={icon.children} />
         </span>
         <span style={{ textAlign: 'center', fontSize: '0.7rem' }}>
-          Alfreds Futterkiste Alfreds
+          {fetchDriver(trip.driverID)}
         </span>
       </td>
-      <td style={contentData}>Maria Anders Alfreds Futterkiste</td>
-      <td style={contentData}>Germany</td>
+      <td style={contentData}>{trip.user.name}</td>
+      <td style={contentData}>${trip.billedAmount}</td>
     </tr>
   );
 };
