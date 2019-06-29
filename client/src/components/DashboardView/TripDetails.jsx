@@ -53,23 +53,8 @@ export default function Trips() {
           <section style={destinationLog.amount}>
             <div style={destinationLog.amountMoney}>$276</div>
             <div style={destinationLog.amountDate}>
-              <h4
-                style={{
-                  margin: '0',
-                  fontWeight: 400,
-                  textAlign: 'center',
-                }}
-              >
-                TODAY
-              </h4>
-              <h5
-                style={{
-                  margin: '0',
-                  fontWeight: 500,
-                }}
-              >
-                06:30 PM
-              </h5>
+              <h4 style={destinationLog.todayDate}>TODAY</h4>
+              <h5 style={destinationLog.todayTime}>06:30 PM</h5>
             </div>
           </section>
           <section style={destinationLog.requests}>
@@ -87,7 +72,16 @@ export default function Trips() {
                 </div>
               </span>
             </div>
-            <div style={destinationLog.destinationRequest}>Request</div>
+            <div style={destinationLog.destinationRequest}>
+              <span>
+                <div>REQUESTS</div>
+                <div style={destinationLog.requestCount}>1</div>
+              </span>
+              <span>
+                <div>REQUESTS</div>
+                <div style={destinationLog.requestCount}>5</div>
+              </span>
+            </div>
           </section>
         </div>
       </TripSection>
@@ -241,9 +235,15 @@ const destinationLog = {
     justifyContent: 'space-evenly',
     alignItems: 'center',
     padding: '0 0.5rem',
+    marginLeft: '0.5rem',
+    marginTop: '0.5rem',
+    borderBottomLeftRadius: '5px',
+    borderTopLeftRadius: '5px',
+    backgroundColor: '#fff',
   },
+
   requests: {
-    border: '2px yellow solid',
+    backgroundColor: '#fff',
     width: '75%',
     height: '40%',
     display: 'flex',
@@ -251,6 +251,10 @@ const destinationLog = {
     justifyContent: 'space-evenly',
     alignItems: 'center',
     boxShadow: '-1px 0px 0px 0px rgba(189,189,189,1)',
+    marginRight: '0.5rem',
+    marginTop: '0.5rem',
+    borderBottomRightRadius: '5px',
+    borderTopRightRadius: '5px',
   },
 
   amountMoney: {
@@ -287,6 +291,16 @@ const destinationLog = {
   destinationRequest: {
     width: '90%',
     height: '40%',
+    // border: '1px pink solid',
+    display: 'flex',
+    fontSize: '0.7rem',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  requestCount: {
+    textAlign: 'center',
+    marginTop: '0.3rem',
   },
 
   destinationIcon: {
@@ -299,5 +313,16 @@ const destinationLog = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+  },
+
+  todayDate: {
+    margin: '0',
+    fontWeight: 400,
+    textAlign: 'center',
+  },
+
+  todayTime: {
+    margin: '0',
+    fontWeight: 500,
   },
 };
