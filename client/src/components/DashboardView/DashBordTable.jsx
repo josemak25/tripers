@@ -47,4 +47,5 @@ const tableHolder = {
   overflowY: 'scroll',
   height: '15.5rem',
   boxShadow: '00px 0px 3px 1px rgba(153,150,153,1)',
+  color: '#66717a',
 };

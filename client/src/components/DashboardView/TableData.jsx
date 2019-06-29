@@ -29,7 +29,7 @@ const TableData = ({ trip }) => {
 export default TableData;
 
 const icon = {
-  //     border: '2px grey solid',
+  // border: '2px grey solid',
   marginRight: '1rem',
   marginLeft: '1rem',
   cursor: 'pointer',
@@ -38,7 +38,7 @@ const icon = {
 };
 
 const tableRow = {
-  //     borderBottom: '0.05px #9a9a9a solid',
+  // borderBottom: '0.05px #9a9a9a solid',
   boxShadow: '0px 1px 0px 0px rgba(209,207,209,1)',
   //     border: '2px yellow solid',
   height: '2rem',

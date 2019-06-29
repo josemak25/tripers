@@ -77,6 +77,7 @@ const Main = styled.section`
   width: 100%;
   background: 'inherit';
   padding: 0.5rem 2rem;
+  // background: #fff
 `;
 
 const welcome = {
@@ -99,6 +100,7 @@ const message = {
   backgroundColor: '#fff',
   borderRadius: '5px',
   boxShadow: '00px 0px 3px 1px rgba(153,150,153,1)',
+  color: '#66717a',
 };
 
 const header = {
@@ -107,6 +109,7 @@ const header = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  color: '#66717a',
 };
 
 const graphHolder = {
