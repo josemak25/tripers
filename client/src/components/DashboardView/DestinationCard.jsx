@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {
+  TripReceiptContext,
+  convertToNumber,
+  todayTime,
+  tripRequests,
+} from './Helpers';
 
 const DestinationCard = () => {
+  const trip = useContext(TripReceiptContext);
+  if (!Array.isArray(trip)) {
+    var billedAmount = trip.billedAmount;
+    var { address: pickupAddress } = trip.pickup;
+    var { address: descAddress } = trip.destination;
+  }
+
   return (
     <>
       <section style={destinationLog.amount}>
-        <div style={destinationLog.amountMoney}>$276</div>
+        <div style={destinationLog.amountMoney}>
+          ${convertToNumber(billedAmount)}
+        </div>
         <div style={destinationLog.amountDate}>
           <h4 style={destinationLog.todayDate}>TODAY</h4>
-          <h5 style={destinationLog.todayTime}>06:30 PM</h5>
+          <h5 style={destinationLog.todayTime}>{todayTime()}</h5>
         </div>
       </section>
       <section style={destinationLog.requests}>
@@ -17,22 +32,18 @@ const DestinationCard = () => {
             style={destinationLog.destinationIcon}
           />
           <span style={destinationLog.arrival}>
-            <div style={destinationLog.pickUp}>
-              311 Woodbine Street, Catharine, Kentucky, 8240
-            </div>
-            <div style={destinationLog.dropOff}>
-              311 Woodbine Street, Catharine, Kentucky, 8240
-            </div>
+            <div style={destinationLog.pickUp}>{pickupAddress}</div>
+            <div style={destinationLog.dropOff}>{descAddress}</div>
           </span>
         </div>
         <div style={destinationLog.destinationRequest}>
           <span style={destinationLog.requestFont}>
-            <div>REQUESTS</div>
+            <div>ACCEPTED</div>
             <div style={destinationLog.requestCount}>1</div>
           </span>
           <span style={destinationLog.requestFont}>
             <div>REQUESTS</div>
-            <div style={destinationLog.requestCount}>5</div>
+            <div style={destinationLog.requestCount}>{tripRequests()}</div>
           </span>
         </div>
       </section>

@@ -1,58 +1,81 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import fetchDriver, {
+  TripReceiptContext,
+  DriversContext,
+  convertToNumber,
+  getAddress,
+  getDate,
+  tripTime,
+} from './Helpers';
 
 const TripReceipt = () => {
+  const trip = useContext(TripReceiptContext);
+  const drivers = useContext(DriversContext);
+
+  if (!Array.isArray(trip)) {
+    var { name, gender, email, phone } = trip.user;
+    var billedAmount = trip.billedAmount;
+    var { address: pickupAddress } = trip.pickup;
+    var { address: descAddress } = trip.destination;
+    var [day, weekday] = getDate(trip.created);
+    var { pickupTime, dropOffTime } = tripTime(trip.created);
+    var { driverID } = trip;
+  }
+
   return (
     <>
       <h6 style={{ margin: '0.6rem', color: '#fff' }}>Trip Receipt</h6>
       <section style={destination}>
-        <span style={direction}>Lagos</span>
+        <span style={direction}>{getAddress(pickupAddress)}</span>
         <span style={{ fontSize: '1.2rem' }}>
           <i className="fas fa-arrow-circle-right" />
         </span>
-        <span style={direction}>Ibadan</span>
+        <span style={direction}>{getAddress(descAddress)}</span>
       </section>
       <div style={receiptDate}>
-        <span style={receiptDate.day}>20</span>
+        <span style={receiptDate.day}>{day}</span>
         <span style={receiptDate.nthDay}>th</span>
-        March, Wednesday
+        {weekday}
       </div>
       <Details>
         <div style={receiptIcon}>
           <i className="fas fa-taxi" />
         </div>
         <section style={{ color: '#66717a' }}>
-          <h2 style={receiptDetails.driverName}>Garcia Gaines</h2>
+          <h2 style={receiptDetails.driverName}>
+            {fetchDriver(driverID, drivers)}
+          </h2>
           <div style={receiptDetails.price}>
             <span>
               <h5 style={receiptDetails.passengerTag}>Passenger</h5>
               <h3 style={receiptDetails.passengerName}>
-                Name: <span style={userDetails}>Sanford Valentine</span>
+                Name: <span style={userDetails}>{name}</span>
               </h3>
               <h3 style={receiptDetails.passengerName}>
-                Email: <span style={userDetails}>Sanford@gmial.com</span>
+                Email: <span style={userDetails}>{email}</span>
               </h3>
               <h3 style={receiptDetails.passengerName}>
-                Gender: <span style={userDetails}>Female</span>
+                Gender: <span style={userDetails}>{gender}</span>
               </h3>
               <h3 style={receiptDetails.passengerName}>
-                Phone: <span style={userDetails}>+234 808-375-2326</span>
+                Phone: <span style={userDetails}>{phone}</span>
               </h3>
             </span>
             <span style={receiptDetails.dashedPrice}>
               <span style={receiptDetails.dollarSign}>$</span>
-              2345
+              {convertToNumber(billedAmount)}
             </span>
           </div>
         </section>
         <section style={receiptDetails.pickup}>
           <span>
             <div>Pickup time</div>
-            <div style={receiptDetails.pickupTime}>01: 22am</div>
+            <div style={receiptDetails.pickupTime}>{pickupTime}</div>
           </span>
           <span>
             <div>Dropoff time</div>
-            <div style={receiptDetails.pickupTime}>01: 22am</div>
+            <div style={receiptDetails.pickupTime}>{dropOffTime}</div>
           </span>
         </section>
         <section style={receiptDetails.barCode}>
@@ -188,7 +211,7 @@ const receiptDetails = {
   },
 };
 
-const direction = { fontSize: '1.2rem', fontWeight: 600 };
+const direction = { fontSize: '0.8rem', fontWeight: 600 };
 
 const userDetails = {
   fontSize: '0.6rem',

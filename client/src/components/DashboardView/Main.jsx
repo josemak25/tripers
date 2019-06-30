@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import fetchDriver, {
+import {
   TripsContext,
   DriversContext,
   UpdateTripContext,
+  TripReceiptContext,
 } from './Helpers';
 
 import DashBordTable from './DashBordTable';
@@ -15,12 +16,14 @@ const path = '';
 const MainSection = () => {
   const [trips, setTrips] = useState([]);
   const [drivers, setDrivers] = useState([]);
+  const [receipt, setReceipt] = useState([]);
 
   useEffect(() => {
     fetch('api/trips')
       .then(res => res.json())
       .then(data => {
         setTrips(data.data);
+        setReceipt(data.data[0]);
       });
 
     fetch('/api/drivers')
@@ -37,9 +40,7 @@ const MainSection = () => {
   }, []);
 
   const updateTripDetails = trip => {
-    const { driverID } = trip;
-    const driverName = fetchDriver(driverID, drivers);
-    console.log(driverName);
+    setReceipt(trip);
   };
 
   return (
@@ -74,7 +75,9 @@ const MainSection = () => {
               </UpdateTripContext.Provider>
             </section>
             <section style={tripDetail}>
-              <TripDetails />
+              <TripReceiptContext.Provider value={receipt}>
+                <TripDetails />
+              </TripReceiptContext.Provider>
             </section>
           </section>
         </DriversContext.Provider>
