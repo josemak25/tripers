@@ -5,7 +5,7 @@ const TripReceipt = () => {
   return (
     <Details>
       <div style={receiptIcon}>
-        <i class="fas fa-car-alt" />
+        <i className="fas fa-car-alt" />
       </div>
       <section style={{ color: '#66717a' }}>
         <div style={receiptDetails.price}>

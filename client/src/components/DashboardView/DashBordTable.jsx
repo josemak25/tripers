@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import TableData from './TableData';
-import { TripsContext } from './Context';
+import { TripsContext, UpdateTripContext } from './Helpers';
 
 const DashBordTable = () => {
   const trips = useContext(TripsContext);
+  const updateTripDetails = useContext(UpdateTripContext);
 
   return (
     <section>
@@ -22,7 +23,11 @@ const DashBordTable = () => {
           </thead>
           <tbody>
             {trips.map((trip, i) => (
-              <TableData key={i} trip={trip} />
+              <TableData
+                key={i}
+                trip={trip}
+                handleChange={() => updateTripDetails(trip)}
+              />
             ))}
           </tbody>
         </table>

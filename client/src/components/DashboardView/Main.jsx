@@ -1,9 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import fetchDriver, {
+  TripsContext,
+  DriversContext,
+  UpdateTripContext,
+} from './Helpers';
+
 import DashBordTable from './DashBordTable';
 import TripDetails from './TripDetails';
 import ChartCard from './ChartCard';
-import { TripsContext, DriversContext } from './Context';
 
 const path = '';
 
@@ -30,6 +35,12 @@ const MainSection = () => {
         setDrivers(response);
       });
   }, []);
+
+  const updateTripDetails = trip => {
+    const { driverID } = trip;
+    const driverName = fetchDriver(driverID, drivers);
+    console.log(driverName);
+  };
 
   return (
     <Main>
@@ -58,7 +69,9 @@ const MainSection = () => {
           <section style={infoHolder}>
             <section style={graphHolder}>
               <ChartCard />
-              <DashBordTable />
+              <UpdateTripContext.Provider value={updateTripDetails}>
+                <DashBordTable />
+              </UpdateTripContext.Provider>
             </section>
             <section style={tripDetail}>
               <TripDetails />

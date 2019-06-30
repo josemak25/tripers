@@ -1,23 +1,17 @@
 import React, { useContext } from 'react';
-import { DriversContext } from './Context';
+import fetchDriver, { DriversContext } from './Helpers';
 
-const TableData = ({ trip }) => {
+const TableData = ({ trip, handleChange }) => {
   const drivers = useContext(DriversContext);
-
-  const fetchDriver = driverID => {
-    const driver = drivers[driverID];
-    if (!driver) return 'Not Available';
-    return driver.name;
-  };
-
+  const { driverID } = trip;
   return (
     <tr style={tableRow}>
       <td style={tableData}>
-        <span style={icon}>
+        <span style={icon} onClick={handleChange}>
           <i className="fas fa-ellipsis-v" style={icon.children} />
         </span>
         <span style={{ textAlign: 'center', fontSize: '0.7rem' }}>
-          {fetchDriver(trip.driverID)}
+          {fetchDriver(driverID, drivers)}
         </span>
       </td>
       <td style={contentData}>{trip.user.name}</td>

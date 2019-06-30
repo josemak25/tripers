@@ -8,7 +8,7 @@ const TripReceipt = () => {
       <section style={destination}>
         <span style={direction}>Lagos</span>
         <span style={{ fontSize: '1.2rem' }}>
-          <i class="fas fa-arrow-circle-right" />
+          <i className="fas fa-arrow-circle-right" />
         </span>
         <span style={direction}>Ibadan</span>
       </section>
@@ -19,7 +19,7 @@ const TripReceipt = () => {
       </div>
       <Details>
         <div style={receiptIcon}>
-          <i class="fas fa-taxi" />
+          <i className="fas fa-taxi" />
         </div>
         <section style={{ color: '#66717a' }}>
           <h2 style={receiptDetails.driverName}>Garcia Gaines</h2>
