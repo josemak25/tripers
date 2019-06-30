@@ -6,11 +6,15 @@ const DashBordTable = () => {
   const trips = useContext(TripsContext);
 
   return (
-    <section style={{ paddingRight: '0.9rem', paddingLeft: '0.5rem' }}>
+    <section>
       <div style={tableHolder}>
         <table style={{ width: '100%' }}>
           <thead>
-            <tr style={{ boxShadow: '0px 1px 0px 0px rgba(209,207,209,1)' }}>
+            <tr
+              style={{
+                boxShadow: '0px 1px 0px 0px rgba(209,207,209,1)',
+              }}
+            >
               <th style={table}>Drive Name</th>
               <th style={table}>User Name</th>
               <th style={table}>Amount</th>
@@ -30,15 +34,14 @@ const DashBordTable = () => {
 export default DashBordTable;
 
 const table = {
-  // border: '1px solid black',
   textAlign: 'center',
-  padding: '8px',
-  fontSize: '0.5rem',
+  padding: '7px',
+  fontSize: '0.8rem',
+  background: '#ff6384',
+  color: '#fff',
 };
 
 const tableHolder = {
-  // border: '2px red solid',
-  paddingTop: '0.6rem',
   backgroundColor: '#fff',
   borderTopRightRadius: '8px',
   borderTopLeftRadius: '8px',

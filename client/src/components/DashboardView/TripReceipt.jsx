@@ -4,11 +4,13 @@ import styled from 'styled-components';
 const TripReceipt = () => {
   return (
     <>
-      <h6 style={{ margin: '0.6rem' }}>Trip Receipt</h6>
+      <h6 style={{ margin: '0.6rem', color: '#fff' }}>Trip Receipt</h6>
       <section style={destination}>
-        <span>Lagos</span>
-        <span>to Icon</span>
-        <span>Ibadan</span>
+        <span style={direction}>Lagos</span>
+        <span style={{ fontSize: '1.2rem' }}>
+          <i class="fas fa-arrow-circle-right" />
+        </span>
+        <span style={direction}>Ibadan</span>
       </section>
       <div style={receiptDate}>
         <span style={receiptDate.day}>20</span>
@@ -16,13 +18,26 @@ const TripReceipt = () => {
         March, Wednesday
       </div>
       <Details>
-        <div style={receiptIcon}>icon</div>
+        <div style={receiptIcon}>
+          <i class="fas fa-taxi" />
+        </div>
         <section style={{ color: '#66717a' }}>
           <h2 style={receiptDetails.driverName}>Garcia Gaines</h2>
           <div style={receiptDetails.price}>
             <span>
               <h5 style={receiptDetails.passengerTag}>Passenger</h5>
-              <h3 style={receiptDetails.passengerName}>Aurelia Rios</h3>
+              <h3 style={receiptDetails.passengerName}>
+                Name: <span style={userDetails}>Sanford Valentine</span>
+              </h3>
+              <h3 style={receiptDetails.passengerName}>
+                Email: <span style={userDetails}>Sanford@gmial.com</span>
+              </h3>
+              <h3 style={receiptDetails.passengerName}>
+                Gender: <span style={userDetails}>Female</span>
+              </h3>
+              <h3 style={receiptDetails.passengerName}>
+                Phone: <span style={userDetails}>+234 808-375-2326</span>
+              </h3>
             </span>
             <span style={receiptDetails.dashedPrice}>
               <span style={receiptDetails.dollarSign}>$</span>
@@ -42,7 +57,7 @@ const TripReceipt = () => {
         </section>
         <section style={receiptDetails.barCode}>
           <span style={{ margin: 'auto', fontSize: '1rem' }}>
-            |||||||||||||||||||||||||||||
+            |||||||||||||||||||||||
           </span>
         </section>
       </Details>
@@ -68,7 +83,7 @@ const receiptIcon = {
   position: 'relative',
   right: -155,
   borderRadius: '30px',
-  fontSize: '0.5rem',
+  fontSize: '1.2rem',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -84,12 +99,14 @@ const destination = {
   width: '80%',
   fontSize: '0.8rem',
   fontWeight: '450',
+  color: '#fff',
 };
 
 const receiptDate = {
+  color: '#fff',
   margin: '1rem',
   fontSize: '0.7rem',
-  day: { fontSize: '1.1rem' },
+  day: { fontSize: '1.1rem', fontWeight: '500' },
   nthDay: {
     fontSize: '0.5rem',
     marginRight: '0.5rem',
@@ -107,21 +124,26 @@ const receiptDetails = {
   price: {
     display: 'flex',
     justifyContent: 'space-between',
-    height: '5rem',
+    height: '6rem',
     paddingLeft: '0.5rem',
     boxShadow: '0px 0px 3px -1px rgba(189,189,189,1)',
+    paddingTop: '0.5rem',
   },
 
   passengerTag: {
     fontSize: '0.6rem',
     fontWeight: 'unset',
     marginLeft: '1rem',
+    marginTop: '0.1rem',
+    marginBottom: 0,
   },
 
   passengerName: {
     fontSize: '0.7rem',
     fontWeight: '550',
     marginLeft: '1rem',
+    marginTop: '0.1rem',
+    marginBottom: 0,
   },
 
   dashedPrice: {
@@ -164,4 +186,11 @@ const receiptDetails = {
     justifyContent: 'space-between',
     fontSize: '0.7rem',
   },
+};
+
+const direction = { fontSize: '1.2rem', fontWeight: 600 };
+
+const userDetails = {
+  fontSize: '0.6rem',
+  fontWeight: '450',
 };

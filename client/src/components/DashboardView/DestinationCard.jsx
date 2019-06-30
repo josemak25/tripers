@@ -110,7 +110,6 @@ const destinationLog = {
   destinationRequest: {
     width: '90%',
     height: '40%',
-    // border: '1px pink solid',
     display: 'flex',
     fontSize: '0.7rem',
     justifyContent: 'space-between',

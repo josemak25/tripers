@@ -15,7 +15,6 @@ function Dashboard() {
 }
 
 const MainSection = styled.section`
-  border: 2px yellow solid;
   width: 100%;
   display: flex;
   background: #ececec;

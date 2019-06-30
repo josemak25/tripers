@@ -11,6 +11,8 @@ export default function Trips() {
         <div style={receipt}>
           <TripReceipt />
         </div>
+        <div style={receiptBackground} />
+
         <div style={destinationLog}>
           <DestinationCard />
         </div>
@@ -29,7 +31,6 @@ const TripSection = styled.section`
 `;
 
 const RecentSection = styled.section`
-  border: 2px yellow solid;
   height: 25%;
   display: flex;
   justify-content: space-evenly;
@@ -40,10 +41,20 @@ const receipt = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  // backgroundColor: '#f4f6fa',
+  position: 'relative',
+  zIndex: 1,
 };
 
 const destinationLog = {
   width: '40%',
   display: 'flex',
+};
+
+const receiptBackground = {
+  position: 'absolute',
+  width: '26.5%',
+  height: '28%',
+  background: '#ff6384',
+  marginLeft: '0.3rem',
+  borderRadius: '3px',
 };

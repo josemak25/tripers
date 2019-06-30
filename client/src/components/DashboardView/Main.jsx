@@ -73,15 +73,12 @@ const MainSection = () => {
 export default MainSection;
 
 const Main = styled.section`
-  // border: 2px red solid;
   width: 100%;
   background: 'inherit';
   padding: 0.5rem 2rem;
-  // background: #fff
 `;
 
 const welcome = {
-  // border: '2px brown solid',
   width: '5%',
   display: 'flex',
   justifyContent: 'space-between',
@@ -91,7 +88,6 @@ const welcome = {
 const iconColor = { color: '#9a9a9a' };
 
 const message = {
-  // border: '2px grey solid',
   height: '3.1rem',
   marginBottom: '1rem',
   display: 'flex',
@@ -104,7 +100,6 @@ const message = {
 };
 
 const header = {
-  // border: '2px black solid',
   height: '3.3rem',
   display: 'flex',
   justifyContent: 'space-between',
@@ -113,17 +108,15 @@ const header = {
 };
 
 const graphHolder = {
-  // border: '2px blue solid',
   width: '50%',
 };
 
 const tripDetail = {
-  border: '2px green solid',
   width: '50%',
 };
 
 const infoHolder = {
-  border: '2px brown solid',
+  // border: '2px brown solid',
   display: 'flex',
   height: '36.7rem',
 };

@@ -39,7 +39,6 @@ const ChartCard = () => {
       </div>
       <div
         style={{
-          //     border: '2px yellow solid',
           width: '65%',
           padding: '1rem',
           display: 'flex',
@@ -57,13 +56,11 @@ export default ChartCard;
 
 const chatSection = {
   height: '20rem',
-  //   border: '2px green solid',
   display: 'flex',
   marginBottom: '0.4rem',
 };
 
 const card = {
-  // border: '1px red solid',
   height: '45%',
   borderRadius: '0.5rem',
   backgroundColor: '#fff',
@@ -71,7 +68,6 @@ const card = {
 };
 
 const cardHolder = {
-  //   border: '2px black solid',
   width: '35%',
   display: 'flex',
   flexDirection: 'column',
