@@ -79,5 +79,23 @@ export const todayTime = () => {
 };
 
 export const tripRequests = () => {
-  return Math.floor(Math.random() * 6);
+  return Math.floor(Math.random() * 6 + 1);
+};
+
+export const recentTrips = (trips, driverID) => {
+  let count = 3;
+  const result = [];
+
+  for (let index = 0; index < trips.length; index++) {
+    if (trips[index].driverID === driverID) {
+      count--;
+      result.push(trips[index]);
+    }
+
+    if (count === 0 || index === trips.length - 1) {
+      if (result.length === 1) return result;
+      if (result.length === 2) return result.splice(0, 1);
+      if (result.length === 3) return result.splice(1, 2);
+    }
+  }
 };

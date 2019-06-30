@@ -4,7 +4,9 @@ import DestinationCard from './DestinationCard';
 import TripReceipt from './TripReceipt';
 import RecentTrips from './RecentTrips';
 
-export default function Trips() {
+export default function Trips(props) {
+  const { recentRides } = props;
+
   return (
     <>
       <TripSection>
@@ -18,8 +20,9 @@ export default function Trips() {
         </div>
       </TripSection>
       <RecentSection>
-        <RecentTrips />
-        <RecentTrips />
+        {recentRides.map((ride, i) => (
+          <RecentTrips key={i} ride={ride} />
+        ))}
       </RecentSection>
     </>
   );

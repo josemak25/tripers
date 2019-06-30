@@ -5,6 +5,7 @@ import {
   DriversContext,
   UpdateTripContext,
   TripReceiptContext,
+  recentTrips,
 } from './Helpers';
 
 import DashBordTable from './DashBordTable';
@@ -17,6 +18,7 @@ const MainSection = () => {
   const [trips, setTrips] = useState([]);
   const [drivers, setDrivers] = useState([]);
   const [receipt, setReceipt] = useState([]);
+  const [recentTrip, setRecentTrip] = useState([]);
 
   useEffect(() => {
     fetch('api/trips')
@@ -24,6 +26,8 @@ const MainSection = () => {
       .then(data => {
         setTrips(data.data);
         setReceipt(data.data[0]);
+        const recentRides = recentTrips(data.data, data.data[0].driverID);
+        setRecentTrip(recentRides);
       });
 
     fetch('/api/drivers')
@@ -41,6 +45,11 @@ const MainSection = () => {
 
   const updateTripDetails = trip => {
     setReceipt(trip);
+
+    const ride = recentTrips(trips, trip.driverID);
+    setRecentTrip(ride);
+    console.log(trip.driverID);
+    console.log(ride);
   };
 
   return (
@@ -76,7 +85,7 @@ const MainSection = () => {
             </section>
             <section style={tripDetail}>
               <TripReceiptContext.Provider value={receipt}>
-                <TripDetails />
+                <TripDetails recentRides={recentTrip} />
               </TripReceiptContext.Provider>
             </section>
           </section>

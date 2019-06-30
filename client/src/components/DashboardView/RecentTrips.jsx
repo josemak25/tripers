@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { convertToNumber, getDate } from './Helpers';
 
-const TripReceipt = () => {
+const TripReceipt = ({ ride }) => {
+  const { name, email } = ride.user;
+  const billedAmount = ride.billedAmount;
+  const [day, weekday] = getDate(ride.created);
+
   return (
     <Details>
       <div style={receiptIcon}>
@@ -10,14 +15,14 @@ const TripReceipt = () => {
       <section style={{ color: '#66717a' }}>
         <div style={receiptDetails.price}>
           <span>
-            <h5 style={receiptDetails.DayOfTrip}>20th</h5>
-            <h3 style={receiptDetails.DateOfTrip}>March, Wednesday</h3>
-            <h3 style={receiptDetails.DayOfTrip}>Sanford Valentine </h3>
-            <h6 style={userEmail}>Sanford@gmial.com</h6>
+            <h5 style={receiptDetails.DayOfTrip}>{day}th</h5>
+            <h3 style={receiptDetails.DateOfTrip}>{weekday}</h3>
+            <h3 style={receiptDetails.DayOfTrip}>{name} </h3>
+            <h6 style={userEmail}>{email}</h6>
           </span>
           <span style={receiptDetails.dashedPrice}>
             <span style={receiptDetails.dollarSign}>$</span>
-            2345
+            {convertToNumber(billedAmount)}
           </span>
         </div>
       </section>
