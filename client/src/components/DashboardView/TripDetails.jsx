@@ -30,7 +30,7 @@ export default function Trips(props) {
 
 const TripSection = styled.section`
   height: 75%;
-  display flex
+  display flex;
 `;
 
 const RecentSection = styled.section`
@@ -55,7 +55,7 @@ const destinationLog = {
 
 const receiptBackground = {
   position: 'absolute',
-  width: '26.5%',
+  width: '58.5%',
   height: '28%',
   background: '#ff6384',
   marginLeft: '0.3rem',

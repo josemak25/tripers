@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 import {
   TripsContext,
   DriversContext,
@@ -11,6 +12,8 @@ import {
 import DashBordTable from './DashBordTable';
 import TripDetails from './TripDetails';
 import ChartCard from './ChartCard';
+import detailContainer from './main.module.css';
+import { setTimeout } from 'timers';
 
 const path = '';
 
@@ -19,6 +22,7 @@ const MainSection = () => {
   const [drivers, setDrivers] = useState([]);
   const [receipt, setReceipt] = useState([]);
   const [recentTrip, setRecentTrip] = useState([]);
+  const [isToggle, setToggle] = useState(false);
 
   useEffect(() => {
     fetch('api/trips')
@@ -41,16 +45,30 @@ const MainSection = () => {
         }, {});
         setDrivers(response);
       });
+    setToggle(!isToggle);
   }, []);
 
   const updateTripDetails = trip => {
-    setReceipt(trip);
+    setTimeout(() => {
+      setReceipt(trip);
 
-    const ride = recentTrips(trips, trip.driverID);
-    setRecentTrip(ride);
-    console.log(trip.driverID);
-    console.log(ride);
+      const ride = recentTrips(trips, trip.driverID);
+      setRecentTrip(ride);
+    }, 500);
+
+    setToggle(!isToggle);
   };
+
+  const fadeOut = useSpring({
+    opacity: isToggle ? 1 : 0,
+    transform: isToggle ? `translate3d(0,0,0)` : `translate3d(100%,0,0)`,
+  });
+
+  if (!isToggle) {
+    setTimeout(() => {
+      setToggle(!isToggle);
+    }, 700);
+  }
 
   return (
     <Main>
@@ -83,11 +101,14 @@ const MainSection = () => {
                 <DashBordTable />
               </UpdateTripContext.Provider>
             </section>
-            <section style={tripDetail}>
+            <animated.section
+              style={fadeOut}
+              className={detailContainer.detail}
+            >
               <TripReceiptContext.Provider value={receipt}>
                 <TripDetails recentRides={recentTrip} />
               </TripReceiptContext.Provider>
-            </section>
+            </animated.section>
           </section>
         </DriversContext.Provider>
       </TripsContext.Provider>
@@ -136,12 +157,7 @@ const graphHolder = {
   width: '50%',
 };
 
-const tripDetail = {
-  width: '50%',
-};
-
 const infoHolder = {
-  // border: '2px brown solid',
   display: 'flex',
   height: '36.7rem',
 };
