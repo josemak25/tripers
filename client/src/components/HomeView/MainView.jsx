@@ -30,7 +30,6 @@ const MainView = () => {
 };
 
 const MainSection = styled.section`
-  border: 2px yellow solid;
   width: 95%;
   display: flex;
   background: #ececec;

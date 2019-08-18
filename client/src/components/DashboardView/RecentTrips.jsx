@@ -30,6 +30,17 @@ const TripReceipt = ({ ride }) => {
   );
 };
 
+TripReceipt.defaultProps = {
+  ride: {
+    user: {
+      name: 'sam',
+      email: 'blah@blah.com',
+    },
+    billedAmount: '20000',
+    created: '2019-04-09T06:08:12+01:00',
+  },
+};
+
 export default TripReceipt;
 
 const Details = styled.div`
