@@ -14,11 +14,6 @@ const contents = [
     display: false,
   },
   {
-    name: 'Trips',
-    icon: 'fas fa-car',
-    display: false,
-  },
-  {
     name: 'Dashboard',
     icon: 'fas fa-chart-line',
     display: false,
@@ -45,7 +40,6 @@ const SideBarSection = styled.section`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  // border: 1px red solid
 `;
 
 export default SideBar;

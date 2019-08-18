@@ -1,8 +1,8 @@
 {
-  "name": "decarides-service",
+  "name": "tripers-service",
   "version": "1.0.0",
   "main": "bin/www",
-  "author": "Bond <dammyakinmade@gmail.com>",
+  "author": "Amakiri <amakirij@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
